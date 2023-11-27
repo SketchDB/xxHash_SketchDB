@@ -333,7 +333,9 @@ extern "C" {
    /* make all functions private */
 #  undef XXH_PUBLIC_API
 #  if defined(__GNUC__)
-#    define XXH_PUBLIC_API static __inline __attribute__((unused))
+// MILIND: remove unused attribute
+//#    define XXH_PUBLIC_API static __inline __attribute__((unused))
+#    define XXH_PUBLIC_API static __inline
 #  elif defined (__cplusplus) || (defined (__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L) /* C99 */)
 #    define XXH_PUBLIC_API static inline
 #  elif defined(_MSC_VER)
